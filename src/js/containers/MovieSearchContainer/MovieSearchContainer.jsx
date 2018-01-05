@@ -101,7 +101,7 @@ class MovieSearchContainer extends React.Component {
           movieData.map(movieData =>{
           
           return(
-          <div className="movieSearchInline">
+          <div className="movieSearchInline" key={movieData.imdbID}>
             <div className="movieSearchPosterDiv">
               <img className="poster" src={movieData.Poster} />
             </div>
