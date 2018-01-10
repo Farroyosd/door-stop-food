@@ -13288,6 +13288,10 @@ var _HomeContainer = __webpack_require__(148);
 
 var _HomeContainer2 = _interopRequireDefault(_HomeContainer);
 
+var _SearchResultsContainer = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./containers/SearchResultsContainer\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+var _SearchResultsContainer2 = _interopRequireDefault(_SearchResultsContainer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -13314,7 +13318,8 @@ var App = function (_Component) {
         _react2.default.createElement(
           'div',
           { className: '' },
-          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _HomeContainer2.default })
+          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _HomeContainer2.default }),
+          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/searchresults', component: _SearchResultsContainer2.default })
         )
       );
     }
@@ -14254,60 +14259,56 @@ var HomeContainer = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { className: 'App' },
+        { className: 'homeDiv' },
         _react2.default.createElement(
           'div',
-          { className: 'homeDiv' },
+          { className: 'navBar' },
           _react2.default.createElement(
-            'div',
-            { className: 'navBar' },
+            'ul',
+            null,
             _react2.default.createElement(
-              'ul',
+              'li',
               null,
               _react2.default.createElement(
-                'li',
-                null,
-                _react2.default.createElement(
-                  'a',
-                  { className: 'navLogo', href: '#home' },
-                  'Door Stop Food'
-                )
-              ),
+                'a',
+                { className: 'navLogo', href: '#home' },
+                'Door Stop Food'
+              )
+            ),
+            _react2.default.createElement(
+              'li',
+              null,
               _react2.default.createElement(
-                'li',
-                null,
-                _react2.default.createElement(
-                  'a',
-                  { className: 'navLogIn', href: '#about' },
-                  'Log in'
-                )
+                'a',
+                { className: 'navLogIn', href: '#about' },
+                'Log in'
               )
             )
-          ),
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'searchDiv' },
           _react2.default.createElement(
-            'div',
-            { className: 'searchDiv' },
+            'form',
+            null,
             _react2.default.createElement(
-              'form',
-              null,
+              'div',
+              { className: 'form-row' },
               _react2.default.createElement(
                 'div',
-                { className: 'form-row' },
+                { className: 'col' },
                 _react2.default.createElement(
                   'div',
-                  { className: 'col' },
+                  { className: 'input-group' },
+                  _react2.default.createElement('input', { type: 'text', id: 'foodSearch', className: 'form-control', placeholder: 'Let\'s find you something to eat', 'aria-label': 'Search for...' }),
                   _react2.default.createElement(
-                    'div',
-                    { className: 'input-group' },
-                    _react2.default.createElement('input', { type: 'text', id: 'foodSearch', className: 'form-control', placeholder: 'Let\'s find you something to eat', 'aria-label': 'Search for...' }),
+                    'span',
+                    { className: 'input-group-btn' },
                     _react2.default.createElement(
-                      'span',
-                      { className: 'input-group-btn' },
-                      _react2.default.createElement(
-                        'button',
-                        { className: 'btn btn-success', type: 'button' },
-                        '>'
-                      )
+                      'button',
+                      { className: 'btn btn-success', type: 'button' },
+                      '>'
                     )
                   )
                 )

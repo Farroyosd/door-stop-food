@@ -4,6 +4,7 @@ import {
   Route 
 } from 'react-router-dom';
 import HomeContainer from './containers/HomeContainer';
+import SearchResultsContainer from './containers/SearchResultsContainer';
 
 
 export default class App extends Component {
@@ -12,6 +13,7 @@ export default class App extends Component {
       <Router>
       <div className=''> 
         <Route exact path='/' component={ HomeContainer } />
+        <Route exact path='/searchresults' component={ SearchResultsContainer } />
       </div>
     </Router>
     );
