@@ -1,0 +1,56 @@
+{
+  "name": "customer",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "first_name": {
+      "type": "string",
+      "required": true
+    },
+    "last_name": {
+      "type": "string",
+      "required": true
+    },
+    "username": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "string"
+    },
+    "password": {
+      "type": "string",
+      "required": true
+    },
+    "order_history": {
+      "type": [
+        "object"
+      ]
+    },
+    "phone_number": {
+      "type": "string"
+    },
+    "restaurant_owner": {
+      "type": "boolean",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "restaurants": {
+      "type": "hasMany",
+      "model": "restaurant",
+      "foreignKey": "restaurant"
+    },
+    "orders": {
+      "type": "hasMany",
+      "model": "order",
+      "foreignKey": "customer_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

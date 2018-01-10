@@ -1,0 +1,30 @@
+{
+  "name": "order",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "menu_items": {
+      "type": [
+        "object"
+      ],
+      "required": true
+    },
+    "total": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "payments": {
+      "type": "hasOne",
+      "model": "payment",
+      "foreignKey": "order_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

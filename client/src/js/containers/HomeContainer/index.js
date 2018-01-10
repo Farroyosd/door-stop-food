@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import MovieSearchContainer from './MovieSearchContainer';
+import HomeContainer from './HomeContainer';
 
 
 function mapStoreToProps(store) {
@@ -9,4 +9,4 @@ function mapStoreToProps(store) {
 }
 
 
-export default connect(mapStoreToProps)(MovieSearchContainer);
+export default connect(mapStoreToProps)(HomeContainer);

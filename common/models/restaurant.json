@@ -1,0 +1,56 @@
+{
+  "name": "restaurant",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "menu": {
+      "type": [
+        "object"
+      ],
+      "required": true
+    },
+    "restaurant_name": {
+      "type": "string",
+      "required": true
+    },
+    "address": {
+      "type": "string",
+      "required": true
+    },
+    "phone_number": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "food_type": {
+      "type": "string",
+      "required": true
+    },
+    "wait_time": {
+      "type": "string"
+    },
+    "hours_of_operation": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "menuItems": {
+      "type": "hasMany",
+      "model": "menu_item",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
