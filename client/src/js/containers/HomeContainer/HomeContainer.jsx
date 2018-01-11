@@ -33,7 +33,6 @@ class HomeContainer extends React.Component {
 
   render() {
     return (
-      <div>
         <div className="homeDiv">
         <NavBarContainer/>
           <div className="homeHeaderDiv">
@@ -54,7 +53,6 @@ class HomeContainer extends React.Component {
             </form>
           </div>
         </div>
-      </div>
     );
   }
 }
