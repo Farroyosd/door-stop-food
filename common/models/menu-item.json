@@ -1,7 +1,6 @@
 {
   "name": "menu_item",
   "base": "PersistedModel",
-  "idInjection": true,
   "options": {
     "validateUpsert": true
   },

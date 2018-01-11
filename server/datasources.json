@@ -4,13 +4,13 @@
     "connector": "memory"
   },
   "MongoDB": {
-    "host": "",
-    "port": 0,
+    "host": "ds249707.mlab.com",
+    "port": 49707,
     "url": "",
-    "database": "",
-    "password": "",
+    "database": "doorstopfood",
+    "password": "doorstopfood",
     "name": "MongoDB",
-    "user": "",
+    "user": "doorstopfood",
     "connector": "mongodb"
   }
 }
