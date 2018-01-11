@@ -5,6 +5,7 @@ import {
 } from 'react-router-dom';
 import HomeContainer from './containers/HomeContainer';
 import SearchResultsContainer from './containers/SearchResultsContainer';
+import '../css/style.less';
 
 
 export default class App extends Component {

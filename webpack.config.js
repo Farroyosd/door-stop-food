@@ -30,6 +30,10 @@ module.exports = {
         test: /\.html$/,
         loader: 'file?name=[name].[ext]',
       },
+      {
+        test: /\.less$/,
+        loader: "style-loader!css-loader!less-loader"
+      }
     ],
   },
 };

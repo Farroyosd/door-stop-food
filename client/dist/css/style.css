@@ -43,3 +43,24 @@ li a:hover {
   padding-top: 30vh;
   margin: 0 auto;
 }
+.searchResultsHeader {
+  display: grid;
+  grid-template-rows: 490px;
+  grid-template-columns: 1fr;
+  background-image: url('../../images/searchResultsHeader.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.resultListings {
+  display: grid;
+  grid-template-columns: 15% 1fr 1fr 15%;
+  grid-gap: 10px;
+  justify-items: center;
+}
+.result {
+  height: 300px;
+  width: 500px;
+  background-color: green;
+  border: solid;
+}
