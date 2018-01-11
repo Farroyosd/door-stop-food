@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import MenuContainer from './MenuContainer';
+import CheckoutContainer from './CheckoutContainer';
 
 
 function mapStoreToProps(store) {
@@ -9,4 +9,4 @@ function mapStoreToProps(store) {
 }
 
 
-export default connect(mapStoreToProps)(MenuContainer);
+export default connect(mapStoreToProps)(CheckoutContainer);
