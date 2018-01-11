@@ -8,7 +8,9 @@ import SearchResultsContainer from './containers/SearchResultsContainer';
 import MenuContainer from './containers/MenuContainer';
 import CheckoutContainer from './containers/CheckoutContainer'
 import '../css/style.less';
+import FooterContainer from './containers/FooterContainer';
 
+import '../css/style.less';
 
 export default class App extends Component {
   render() {
@@ -19,6 +21,7 @@ export default class App extends Component {
         <Route exact path='/searchresults' component={ SearchResultsContainer } />
         <Route exact path='/menu' component={ MenuContainer } />
         <Route exact path='/checkout' component={ CheckoutContainer } />
+      <FooterContainer/>
       </div>
     </Router>
     );

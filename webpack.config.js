@@ -2,6 +2,7 @@ const path = require('path');
 
 module.exports = {
   context: path.join(__dirname, 'client', 'src'),
+  
 
   entry: {
     javascript: './js/index'
