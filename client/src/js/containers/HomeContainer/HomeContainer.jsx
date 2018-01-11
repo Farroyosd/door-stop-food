@@ -10,7 +10,6 @@ class HomeContainer extends React.Component {
 
   render() {
     return (
-      <div className="App">
         <div className="homeDiv">
           <div className="navBar">
             <ul>
@@ -33,8 +32,6 @@ class HomeContainer extends React.Component {
             </form>
           </div>
         </div>
-
-      </div>
     );
   }
 }
