@@ -2,6 +2,7 @@ const path = require('path');
 
 module.exports = {
   context: path.join(__dirname, 'client', 'src'),
+  
 
   entry: {
     javascript: './js/index'
@@ -30,6 +31,10 @@ module.exports = {
         test: /\.html$/,
         loader: 'file?name=[name].[ext]',
       },
+      { 
+        test: /\.less$/,
+        loader: "style-loader!css-loader!less-loader"
+      }
     ],
   },
 };
