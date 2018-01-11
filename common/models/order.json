@@ -23,6 +23,11 @@
       "type": "hasOne",
       "model": "payment",
       "foreignKey": "order_id"
+    },
+    "menuItems": {
+      "type": "embedsMany",
+      "model": "menu_item",
+      "property": "menu_items"
     }
   },
   "acls": [],

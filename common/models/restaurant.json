@@ -10,7 +10,7 @@
       "type": [
         "object"
       ],
-      "required": true
+      "required": false
     },
     "restaurant_name": {
       "type": "string",
@@ -46,9 +46,14 @@
   "validations": [],
   "relations": {
     "menuItems": {
-      "type": "hasMany",
+      "type": "embedsMany",
       "model": "menu_item",
-      "foreignKey": ""
+      "property": "menu",
+      "options": {
+        "forceId": true,
+        "persistent": true,
+        "validate": true
+      }
     }
   },
   "acls": [],

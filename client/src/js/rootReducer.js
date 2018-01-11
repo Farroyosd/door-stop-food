@@ -3,7 +3,7 @@ import HomeReducer from './containers/HomeContainer/homeReducer';
 
 
 const rootReducer = combineReducers({
-    movieSearch: HomeReducer,
+    searchData: HomeReducer,
     
 });
 

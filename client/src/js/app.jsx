@@ -4,7 +4,9 @@ import {
   Route 
 } from 'react-router-dom';
 import HomeContainer from './containers/HomeContainer';
+import FooterContainer from './containers/FooterContainer';
 
+import '../css/style.less';
 
 export default class App extends Component {
   render() {
@@ -12,6 +14,7 @@ export default class App extends Component {
       <Router>
       <div className=''> 
         <Route exact path='/' component={ HomeContainer } />
+      <FooterContainer/>
       </div>
     </Router>
     );
