@@ -1,10 +1,9 @@
 import { connect } from 'react-redux';
 import MenuContainer from './MenuContainer';
 
-
 function mapStoreToProps(store) {
   return {
-    movieData: store.movieSearch.movieData
+    searchData: store.searchData.address
   };
 }
 
