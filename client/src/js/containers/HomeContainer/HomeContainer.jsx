@@ -29,23 +29,23 @@ class HomeContainer extends React.Component {
 
   render() {
     return (
-      <div className="homeDiv">
-        <NavBarContainer />
-        <div className="homeHeaderDiv">
-          <h1>Door Stop Food</h1>
-        </div>
-        <div className="searchDiv">
-          <form>
-            <div className="form-row">
-              <div className="col">
-                <div className="input-group">
-                  <input type="text" id="homeSearchBar" className="form-control" placeholder="Let's find you something to eat" aria-label="Search for..." />
-                  <span className="input-group-btn">
-                    <Link to="/searchresults"><button className="btn btn-success" type="button" onClick={this.handleHomeSearch} >></button></Link>
-                  </span>
+        <div className="homeDiv">
+        <NavBarContainer/>
+          <div className="homeHeaderDiv">
+            <h1>Door Stop Food</h1>
+          </div>
+          <div className="searchDiv">
+            <form>
+              <div className="form-row">
+                <div className="col">
+                  <div className="input-group">
+                    <input type="text" id="homeSearchBar" className="form-control" placeholder="Let's find you something to eat" aria-label="Search for..." />
+                    <span className="input-group-btn">
+                      <Link to="/searchresults"><button className="btn btn-success" type="button" onClick={this.handleHomeSearch} >></button></Link>
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
           </form>
         </div>
       </div>
