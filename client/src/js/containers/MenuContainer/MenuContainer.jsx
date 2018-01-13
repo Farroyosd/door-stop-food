@@ -13,6 +13,7 @@ class MenuContainer extends React.Component {
             <div className="menuContainer">
             < NavBarContainer/>
                 <div className="menuHeader">
+                <NavBarContainer />
                 </div>
                 <div className="menuBody">
                     <h1>La Taquero Menu</h1>
