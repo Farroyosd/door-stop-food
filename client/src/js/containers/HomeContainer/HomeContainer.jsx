@@ -45,7 +45,7 @@ class HomeContainer extends React.Component {
                   <div className="input-group">
                     <input type="text" id="homeSearchBar" className="form-control" placeholder="Let's find you something to eat" aria-label="Search for..." />
                     <span className="input-group-btn">
-                      <Link to="/"><button className="btn btn-success" type="button" onClick={this.handleHomeSearch} >></button></Link>
+                      <Link to="/searchresults"><button className="btn btn-success" type="button" onClick={this.handleHomeSearch} >></button></Link>
                     </span>
                   </div>
                 </div>

@@ -1,5 +1,6 @@
 const defaultState = {
     address : "",
+    error: "",
   };
   
   export default function searchReducer (state = defaultState, action) {
@@ -9,7 +10,7 @@ const defaultState = {
       
       
   
-      case 'GET_SEARCH_DATA': {
+      case 'GET_SEARCH_DATA_FULFILLED': {
         return {
           ...state,
           address: payload
