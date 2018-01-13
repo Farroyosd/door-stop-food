@@ -16,7 +16,7 @@ body {
   border-radius: 10px;
 }
 
-ul {
+.navBar ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -24,7 +24,7 @@ ul {
   background: rgba(0,0,0,0.5);
 }
 
-li a {
+.navBar ul li a {
   display: block;
   color: white;
   text-decoration: none;
@@ -33,7 +33,7 @@ li a {
   text-shadow: 2px 2px 2px black;
   
 }
-li a:hover{
+.navBar ul li a:hover{
   color:white;
   text-decoration: none;
 }
@@ -186,6 +186,75 @@ li a:hover{
 .backButtonContainer p {
   margin: 0;
 }
+//Sign Up Page
+
+.signUpBG{
+  height: 100vh;
+  width:100vw;
+  background-image: url("https://files.slack.com/files-tmb/T0535UKR3-F8SCTK929-81f2db314b/abovetable_720.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.signup {
+  width: 500px;
+  padding: 30px 20px;
+  background-color: white;
+  border-radius: 5px;
+  font: 1em Helvetica;
+  color: rgba(0,0,0,.5);
+  margin: 0 auto;
+  margin-top: 10vh;
+}
+
+.signUpInput, .signUpRadioDiv {
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+  border: 0;
+  border-bottom: 1px solid rgba(0,0,0,.2);
+  height: 45px;
+  line-height: 45px;  
+  margin-bottom: 10px;
+  font-size: 1em;
+  color: rgba(0,0,0,.4);
+}
+.signUpRadioDiv{
+  color: rgba(0,0,0,.55)
+}
+.signUpRadioDiv input{
+  margin-left:10px;
+}
+.signUpRadioDiv label{
+  margin-left:10px;
+}
+
+.signUpBtn {
+  display: block;
+  margin-top: 25px;
+  width: 80%;
+  border: 0;
+  background-color: #53CACE;
+  border-radius: 5px;
+  height: 50px;
+  color: white;
+  font-weight: 400;
+  font-size: 1em;
+  margin: 0 auto;
+}
+
+[type='text']:focus {
+  outline: none;
+  border-color: #53CACE;
+}
+
+[type='password']:focus {
+  outline: none;
+  border-color: #53CACE;
+}
+
+
+//Footer
 
 footer{
   background-color: black;
