@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import NavBarContainer from '../NavBarContainer';
 
 class MenuContainer extends React.Component {
     constructor(props) {
@@ -10,6 +11,7 @@ class MenuContainer extends React.Component {
     render() {
         return (
             <div className="menuContainer">
+            < NavBarContainer/>
                 <div className="menuHeader">
                 </div>
                 <div className="menuBody">
