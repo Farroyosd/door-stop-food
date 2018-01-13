@@ -4,6 +4,12 @@ body {
   font-family: sans-serif;
   
 }
+
+h1 {
+  font-family: 'Encode Sans Semi Expanded', sans-serif;
+  font-size: 3vw;
+  // background-color:rgba(0, 0, 0,.5);
+}
 //Nav bar
 
 .navLogo{
@@ -24,7 +30,7 @@ body {
   background: rgba(0,0,0,0.5);
 }
 
-.navBar ul li a {
+.navBar li a {
   display: block;
   color: white;
   text-decoration: none;
@@ -151,8 +157,9 @@ body {
 }
 
 .item {
-  border: 1px solid;
+  border: 3px solid;
   padding: 5px;
+  text-align: center;
 }
 
 .foodDescription {
@@ -168,21 +175,28 @@ body {
 }
 
 .item:hover .foodName,.item:hover .foodPrice, .item:hover .foodDescription {
-  opacity: .3
+  opacity: .2
 }
 
 .middle {
   transition: .5s ease;
   opacity: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%)
+  width: 40%;
+  margin: 0 auto;
+  padding: 5px 0;
+  bottom: 40px;
+  position:relative;
+  // position: absolute;
+  // top: 50%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
+  // -ms-transform: translate(-50%, -50%)
 }
 
 .item:hover .middle {
   opacity: 1;
+  background: darkgray;
+  color:white;
 }
 
 .backButtonContainer {
@@ -271,6 +285,9 @@ footer{
   margin: 0;
   height: 30px;
   vertical-align: middle;
+  position: relative;
+  bottom: 0;
+  width: 100%
 }
 
 footer p{
