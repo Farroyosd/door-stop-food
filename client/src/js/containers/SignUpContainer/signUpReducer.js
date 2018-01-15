@@ -5,6 +5,7 @@ const defaultState = {
     email : "",
     password : "",
     phoneNumber: "",
+    signUpLink: "/",
     userObj:{
       firstName : "",
     lastName : "",
@@ -63,6 +64,18 @@ const defaultState = {
         return {
           ...state,
           phoneNumber: payload
+        };
+      }
+      case 'UPDATE_SIGN_UP_LINK_TO_CUSTOMER': {
+        return {
+          ...state,
+          signUpLink: payload
+        };
+      }
+      case 'UPDATE_SIGN_UP_LINK_TO_OWNER': {
+        return {
+          ...state,
+          signUpLink: payload
         };
       }
       default: {

@@ -7,6 +7,8 @@ import {
   updateSignUpInputEmail,
   updateSignUpInputPassword,
   updateSignUpInputPhoneNumber,
+  updateSignUpLinkToCustomer,
+  updateSignUpLinkToOwner,
   postCustomerData,
         } from './signUpActions';
 import NavBarContainer from '../NavBarContainer';
@@ -86,14 +88,19 @@ class SignUpContainer extends React.Component {
 
 
   handleChangeFalse(){
+    const { dispatch } = this.props;
     signUpPageBoolean = false;
-    nextPageLink = "/";
-    console.log(nextPageLink);
+    var nextPageLink = "/";
+
+    dispatch(updateSignUpLinkToCustomer(nextPageLink));
+    
   };
   handleChangeTrue(){
+    const { dispatch } = this.props;
     signUpPageBoolean = true;
-    nextPageLink = "/#/restaurantownerprofilepage";
-    console.log(nextPageLink);
+    var nextPageLink = "/restaurantownerpage";
+    
+    dispatch(updateSignUpLinkToOwner(nextPageLink));
   };
 
 
@@ -101,7 +108,7 @@ class SignUpContainer extends React.Component {
 
 
   render() {
-    const { firstName, lastName, username, email, password, phoneNumber, userObj  } = this.props;
+    const { firstName, lastName, username, email, password, phoneNumber, userObj , signUpLink } = this.props;
     
 
   
@@ -123,7 +130,7 @@ class SignUpContainer extends React.Component {
               <input type="radio" name="switch"  onClick={this.handleChangeTrue} />
               <label>Yes</label>
             </div>
-            <Link to={nextPageLink}><button type="submit" className="signUpBtn">SIGN UP</button></Link>
+            <Link to={signUpLink}><button type="submit" className="signUpBtn">SIGN UP</button></Link>
           </form>
         </div>
 
