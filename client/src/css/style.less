@@ -22,11 +22,19 @@ h1 {
   border-radius: 10px;
 }
 
+
 .navBar ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
+  background: rgba(0,0,0,0.5);
+}
+
+.dropdown-menu {
+  color: white;
+  text-decoration: none;
+  padding: 0;
   background: rgba(0,0,0,0.5);
 }
 
@@ -37,12 +45,30 @@ h1 {
   text-align: center;
   padding: 14px 16px;
   text-shadow: 2px 2px 2px black;
-  
 }
+
+.navBar li button {
+  float:right;
+  border: 1px solid lightskyblue;
+  border-radius: 10px;
+  background-color: grey;
+  margin-top: 3px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 10px;
+}
+
 .navBar ul li a:hover{
   color:white;
   text-decoration: none;
 }
+
+.modal-backdrop {
+  display: none;
+}
+
+
+
 
 //Home Page
 .homeDiv{

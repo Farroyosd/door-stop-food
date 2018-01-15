@@ -4,7 +4,9 @@ import NavBarContainer from './NavBarContainer';
 
 function mapStoreToProps(store) {
   return {
-    searchData: store.searchData.address
+  username: store.userInfo.username,
+  password: store.userInfo.password,
+  userLogin: store.userInfo.userLogin
   };
 }
 

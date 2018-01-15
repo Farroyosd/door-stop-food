@@ -107,7 +107,7 @@ class SignUpContainer extends React.Component {
   
     return (
       <div className="signUpBG">
-        <NavBarContainer />
+      <NavBarContainer />
         <div className='signup'>
           <form onSubmit={this.handlePostUser}>
             <input className="signUpInput" type='text' placeholder='First:*' value={firstName} onChange={this.handleInputFirstName}/>

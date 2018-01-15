@@ -23,8 +23,8 @@ export default class App extends Component {
             <Route path='/searchresults' component={SearchResultsContainer} />
             <Route path='/checkout' component={CheckoutContainer} />
             <Route path='/menu' component={ MenuContainer } />
-            <Route path='/:id' component={MenuContainer} />
             <Route path='/signup' component={ SignUpContainer } />
+            <Route path='/:id' component={MenuContainer} />
           </Switch>
           <FooterContainer />
         </div>
