@@ -1,110 +1,178 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import NavBarContainer from '../NavBarContainer';
+import {addToCart} from './menuActions.js'
+// import ShoppingCartContainer from '../ShoppingCartContainer';
+
 
 class MenuContainer extends React.Component {
     constructor(props) {
         super(props);
+
+        this.toggleMenu = this.toggleMenu.bind(this);
+        this.addToCartHandler = this.addToCartHandler.bind(this);
+        
+        this.state = {
+            isOpen: false
+        }
+    }
+
+    toggleMenu() {
+        this.setState({ isOpen: !this.state.isOpen });
+    }
+
+    addToCartHandler(e) {
+        const { dispatch } = this.props;
+        const id = e.target.title;
+        const restaurantData = this.props.searchData;
+        const menuDataRaw = restaurantData.filter(restaurant => restaurant.id === `${this.props.match.params.id}`);
+        const menuData = menuDataRaw[0];
+        const index = menuData.menu.map(item => item.id).indexOf(e.target.title);
+        const itemData = menuData.menu[index]
+        // console.log(itemData);
+        // console.log(menuData.menu[index]);
+        // const foodName = this.props.searchData.indexOf(this);
+        // console.log(foodName)
+        dispatch(addToCart(itemData));
     }
 
 
     render() {
+        const restaurantData = this.props.searchData;
+        const menuDataRaw = restaurantData.filter(restaurant => restaurant.id === `${this.props.match.params.id}`);
+        const menuData = menuDataRaw[0];
+
+        const cartClass = this.state.isOpen ? 'open' : 'close';
+
         return (
             <div className="menuContainer">
-            < NavBarContainer/>
                 <div className="menuHeader">
-                <NavBarContainer />
+                    <NavBarContainer />
+                    <button id="tester1" onClick={this.toggleMenu}>Menu</button>
+
+                    <div className="cartContainer">
+                        <div className={`cart ${cartClass}`} id="cart">
+                            <h4><strong>Shopping Cart</strong></h4>
+                            <hr className="cartLine" />
+                            <div className="cartItem">
+                                <div className="quantity">
+                                    <p>1</p>
+                                </div>
+                                <div className="itemName">
+                                    <p>Veal Parmigian</p>
+                                </div>
+                                <div className="price">
+                                    <p>16.95</p>
+                                </div>
+                                <div className="delete">
+                                    <p><i className="fa fa-trash"></i></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div className="menuBody">
-                    <h1>La Taquero Menu</h1>
+                    <h1>{menuData.restaurant_name}</h1>
                     <div>
                         <div className="categoryHeader">
                             <h2 className="menuCategory">Appetizers</h2>
                         </div>
                         <div className="menuItems">
-                            <div className="item">
-                                <h5 className="foodName">Green Taco</h5>
-                                <h5 className="foodPrice">4.75</h5>
-                                <p className="foodDescription">Slices of avocado and cucumber wrapped in a lettuce leaf.</p>
-                                <div className="middle">
-                                    <div className="orderText">
-                                    <h4>Add To Cart</h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="item">
-                                <h5 className="foodName">Stevie Salad </h5>
-                                <h5 className="foodPrice">5.75</h5>
-                                <p className="foodDescription">Cabbage salad with salsa fresca and jack cheese.</p>
-                            </div>
-                            <div className="item">
-                                <h5 className="foodName">The Original Mexican Pizza</h5>
-                                <h5 className="foodPrice">7.25</h5>
-                                <p className="foodDescription">Bell peppers, tomatoes, onions, mushrooms, Pokez salsa, jack and cheddar cheese.</p>
-                            </div>
-                            <div className="item">
-                                <h5 className="foodName">Tom’s Deep Plate</h5>
-                                <h5 className="foodPrice">6.00</h5>
-                                <p className="foodDescription">Beans, rice, sour cream, guacamole, salsa fresca, and corn or flour tortillas.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div className="categoryHeader">
-                            <h2 className="menuCategory">Entrees</h2>
-                        </div>
-                        <div className="menuItems">
-                            <div className="item">
-                                <h5 className="foodName">Chicken Ranchero</h5>
-                                <h5 className="foodPrice">10.25</h5>
-                                <p className="foodDescription">Tender chicken, mushrooms, onions,  bell peppers and tomatoes sauteed to perfection.</p>
-                            </div>
-                            <div className="item">
-                                <h5 className="foodName">Steak Ranchero</h5>
-                                <h5 className="foodPrice">10.25</h5>
-                                <p className="foodDescription">Tender chunks of beef, mushrooms, onions, bell peppers and tomatoes sauteed to perfection.</p>
-                            </div>
-                            <div className="item">
-                                <h5 className="foodName">Fajitas</h5>
-                                <h5 className="foodPrice">1.25</h5>
-                                <p className="foodDescription">Sauteed strips of marinated chicken, steak, tofu or shrimp with tomatoes, bell peppers,mushrooms and onions. Garnished with guacamole, sour cream, salsa fresca and Limes. Comes with rice, beans and your choice of corn or flour tortillas.</p>
-                            </div>
-                            <div className="item">
-                                <h5 className="foodName">Enchiladas Suiza</h5>
-                                <h5 className="foodPrice">9.50</h5>
-                                <p className="foodDescription">Two chicken enchiladas topped with a special green sauce, red chilies, cheddar cheese, and onions crowned with sour cream. Served with rice and beans.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div className="categoryHeader">
-                            <h2 className="menuCategory">Breakfast</h2>
+                            {!!menuData.menu && menuData.menu
+                                .filter(item => item.category === "Appetizer")
+                                .map(item => {
+                                    return (
+                                        <div className="item" onClick={this.addToCartHandler} id={item.id}>
 
+                                            <h5 className="foodName">{item.item_name}</h5>
+                                            <h5 className="foodPrice">{item.price}</h5>
+                                            <p className="foodDescription">{item.description}</p>
+                                            <div className="middle">
+                                                <div className="orderText">
+                                                    <h4 title={item.id}>Add To Cart</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )
+                                }
+                                )
+                            }
                         </div>
-                        <div className="menuItems">
-                            <div className="item">
-                                <h5 className="foodName">Machaca</h5>
-                                <h5 className="foodPrice">7.25</h5>
-                                <p className="foodDescription">Eggs, sauteed onions, bell peppers and tomatoes with your choice of shredded beef, chicken or tofu.</p>
-                            </div>
-                            <div className="item">
-                                <h5 className="foodName">Carne Asada Eggs</h5>
-                                <h5 className="foodPrice">8.00</h5>
-                                <p className="foodDescription">Tender chunks of beef, mushrooms, onions, bell peppers and tomatoes sauteed to perfection.</p>
-                            </div>
-                            <div className="item">
-                                <h5 className="foodName">Huevos Rancheros </h5>
-                                <h5 className="foodPrice">6.25</h5>
-                                <p className="foodDescription">Soft corn tortilla covered with beans and two fried eggs or tofu, smothered in a ranchero sauce, melted cheese, sour cream.</p>
-                            </div>
-                            <div className="item">
-                                <h5 className="foodName">Chillaquiles </h5>
-                                <h5 className="foodPrice">7.00</h5>
-                                <p className="foodDescription">Corn or Flour Tortillas sauteed in Pokez own hot sauce and cheese.</p>
-                            </div>
-                        </div>
+                    </div>
+                    <div className="categoryHeader">
+                        <h2 className="menuCategory">Entrees</h2>
+                    </div>
+                    <div className="menuItems">
+                        {!!menuData.menu && menuData.menu
+                            .filter(item => item.category === "Entree")
+                            .map(item => {
+                                return (
+                                    <div className="item">
+                                        <h5 className="foodName">{item.item_name}</h5>
+                                        <h5 className="foodPrice">{item.price}</h5>
+                                        <p className="foodDescription">{item.description}</p>
+                                        <div className="middle">
+                                            <div className="orderText">
+                                                <h4>Add To Cart</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )
+                            }
+                            )
+                        }
                     </div>
                 </div>
+
+                <div className="categoryHeader">
+                    <h2 className="menuCategory">Breakfast</h2>
+                </div>
+                <div className="menuItems">
+                    {!!menuData.menu && menuData.menu
+                        .filter(item => item.category === "Breakfast")
+                        .map(item => {
+                            return (
+                                <div className="item">
+                                    <h5 className="foodName">{item.item_name}</h5>
+                                    <h5 className="foodPrice">{item.price}</h5>
+                                    <p className="foodDescription">{item.description}</p>
+                                    <div className="middle">
+                                        <div className="orderText">
+                                            <h4>Add To Cart</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        }
+                        )
+                    }
+                </div>
+
+                <div className="categoryHeader">
+                    <h2 className="menuCategory">Drinks</h2>
+                </div>
+                <div className="menuItems">
+                    {!!menuData.menu && menuData.menu
+                        .filter(item => item.category === "Drink")
+                        .map(item => {
+                            return (
+                                <div className="item">
+                                    <h5 className="foodName">{item.item_name}</h5>
+                                    <h5 className="foodPrice">{item.price}</h5>
+                                    <p className="foodDescription">{item.description}</p>
+                                    <div className="middle">
+                                        <div className="orderText">
+                                            <h4>Add To Cart</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        }
+                        )
+                    }
+                </div>
+
+
             </div>
         )
     }

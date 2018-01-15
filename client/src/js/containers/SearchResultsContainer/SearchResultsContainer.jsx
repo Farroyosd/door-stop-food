@@ -10,7 +10,7 @@ class SearchResultsContainer extends React.Component {
 
     handleMenu(event) {
         const { dispatch } = this.props;
-        const id = event.target.id
+        const id = event.target.id;
     }
 
     render() {
