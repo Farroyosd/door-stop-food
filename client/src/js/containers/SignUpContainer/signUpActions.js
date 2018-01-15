@@ -66,3 +66,18 @@ export function updateSignUpInputPhoneNumber(value) {
         payload: value
     }
 };
+export function updateSignUpLinkToCustomer(value) {
+
+    return {
+        type: 'UPDATE_SIGN_UP_LINK_TO_CUSTOMER',
+        payload: value
+    }
+};
+
+export function updateSignUpLinkToOwner(value) {
+
+    return {
+        type: 'UPDATE_SIGN_UP_LINK_TO_OWNER',
+        payload: value
+    }
+};

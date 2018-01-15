@@ -10,6 +10,7 @@ function mapStoreToProps(store) {
     email:store.signInData.email,
     password: store.signInData.password,
     phoneNumber: store.signInData.phoneNumber,
+    signUpLink: store.signInData.signUpLink,
     userObj: store.signInData.userObj
   };
 }
