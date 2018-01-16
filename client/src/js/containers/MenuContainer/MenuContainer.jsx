@@ -63,7 +63,7 @@ class MenuContainer extends React.Component {
             <div className="menuContainer">
                 <div className="menuHeader" style={{ backgroundImage: "url(" + menuData.restaurant + ")" }}>
                     <NavBarContainer />
-                    <button id="tester1" onClick={this.toggleMenu}>Menu</button>
+                    <button id="tester1" className="cartBtn" onClick={this.toggleMenu}>Cart</button>
 
                     <div className="cartContainer">
                         <div className={`cart ${cartClass}`} id="cart">
@@ -93,7 +93,28 @@ class MenuContainer extends React.Component {
                                 )
                                 }
                             </div>
-                            <button type="button" class="btn btn-primary">Checkout</button>
+                            <button type="button" className="btn btn-primary form-control pr-pl-25" data-toggle="modal" data-target="#exampleModalLong">Checkout</button>
+                            <div className="modal fade" id="exampleModalLong" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div className="modal-dialog" role="document">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="text-center" id="exampleModalLongTitle">Review your order</h5>
+                                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                            </div>
+                        <div className="modal-body">
+                            Your order has been recived!
+                        </div>
+                            <div className="modal-footer">
+                                <Link to="/" className="btn btn-secondary form-control">
+                                                Confirm your Order
+                                 
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                         </div>
                     </div>
                 </div>

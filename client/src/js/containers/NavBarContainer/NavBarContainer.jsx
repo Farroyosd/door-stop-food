@@ -92,7 +92,6 @@ renderNavBarLogin() {
       <li ><a className="navLogo" href="/">Door Stop Food</a></li>
       <li className="pr-4"
           >
-        <button>Cart</button>
       <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
      {username}
       </button>
