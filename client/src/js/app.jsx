@@ -9,6 +9,7 @@ import MenuContainer from './containers/MenuContainer';
 import CheckoutContainer from './containers/CheckoutContainer';
 import SignUpContainer from './containers/SignUpContainer';
 import RestaurantOwnerPageContainer from './containers/RestaurantOwnerPageContainer';
+import AddMenuItemsContainer from './containers/AddMenuItemsContainer';
 import '../css/style.less';
 import FooterContainer from './containers/FooterContainer';
 
@@ -25,6 +26,7 @@ export default class App extends Component {
             <Route path='/checkout' component={CheckoutContainer} />
             <Route path='/signup' component={SignUpContainer} />
             <Route path='/restaurantownerpage' component={RestaurantOwnerPageContainer} />
+            <Route path='/addmenuitems' component={AddMenuItemsContainer}/>
             <Route path='/:id' component={MenuContainer} />
           </Switch>
           <FooterContainer />

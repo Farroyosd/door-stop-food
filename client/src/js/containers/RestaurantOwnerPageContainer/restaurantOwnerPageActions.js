@@ -23,14 +23,6 @@ export function postRestaurantData(restaurantData) {
         
     }
 };
-export function addToMenuArray(menuItemObj) {
-
-    return {
-        type: 'ADD_TO_MENU_ARRAY',
-        payload: menuItemObj
-    }
-};
-
 export function updateSignUpInputRestaurantName(value) {
 
     return {
@@ -85,34 +77,6 @@ export function updateSignUpInputRestaurantWaitTimes(value) {
 
     return {
         type: 'UPDATE_SIGN_UP_INPUT_RESTAURANT_WAIT_TIMES',
-        payload: value
-    }
-};
-export function updateSignUpInputMenuItemName(value) {
-
-    return {
-        type: 'UPDATE_SIGN_UP_INPUT_MENU_ITEM_NAME',
-        payload: value
-    }
-};
-export function updateSignUpInputMenuItemPrice(value) {
-
-    return {
-        type: 'UPDATE_SIGN_UP_INPUT_MENU_ITEM_PRICE',
-        payload: value
-    }
-};
-export function updateSignUpInputMenuItemDescription(value) {
-
-    return {
-        type: 'UPDATE_SIGN_UP_INPUT_MENU_ITEM_DESCRIPTION',
-        payload: value
-    }
-};
-export function updateSignUpInputMenuItemCategory(value) {
-
-    return {
-        type: 'UPDATE_SIGN_UP_INPUT_MENU_ITEM_CATEGORY',
         payload: value
     }
 };

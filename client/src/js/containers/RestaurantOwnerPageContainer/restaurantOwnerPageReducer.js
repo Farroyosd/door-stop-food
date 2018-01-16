@@ -7,11 +7,6 @@ const defaultState = {
     picture: "",
     foodType : "",
     waitTimes: "",
-    menuItemName: "",
-    menuItemPrice: "",
-    menuItemDescription: "",
-    menuItemCategory: "Breakfast",
-    menuArray:[],
     restaurantObj:{
         restaurantName : "",
         address : "",
@@ -21,7 +16,6 @@ const defaultState = {
         picture:"",
         foodType : "",
         waitTimes: "",
-        menuArray:[],
         },
   };
   
@@ -36,12 +30,6 @@ const defaultState = {
         return {
           ...state,
           restaurantObj: payload
-        };
-      }
-      case 'ADD_TO_MENU_ARRAY': {
-        return {
-          ...state,
-          menuArray: [...state.menuArray, payload]
         };
       }
       case 'UPDATE_SIGN_UP_INPUT_RESTAURANT_NAME': {
@@ -90,30 +78,6 @@ const defaultState = {
         return {
           ...state,
           waitTimes: payload
-        };
-      }
-      case 'UPDATE_SIGN_UP_INPUT_MENU_ITEM_NAME': {
-        return {
-          ...state,
-          menuItemName : payload
-        };
-      }
-      case 'UPDATE_SIGN_UP_INPUT_MENU_ITEM_PRICE': {
-        return {
-          ...state,
-          menuItemPrice : payload
-        };
-      }
-      case 'UPDATE_SIGN_UP_INPUT_MENU_ITEM_DESCRIPTION': {
-        return {
-          ...state,
-          menuItemDescription : payload
-        };
-      }
-      case 'UPDATE_SIGN_UP_INPUT_MENU_ITEM_CATEGORY': {
-        return {
-          ...state,
-          menuItemCategory : payload
         };
       }
       default: {
