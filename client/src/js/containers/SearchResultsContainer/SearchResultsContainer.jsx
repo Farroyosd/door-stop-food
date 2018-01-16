@@ -26,7 +26,8 @@ class SearchResultsContainer extends React.Component {
                     {!!searchData && searchData.map(restaurant => {
                         return <Link to={`${restaurant.id}`} onClick={this.runStuff}>
                             <div className="result">
-                                <img src="/images/sushi.jpg" />
+                            {/* {console.log("shiza",restaurant.restaurant)} */}
+                                <img src={restaurant.restaurant} />
                                 <h3>{restaurant.restaurant_name}</h3>
                                 <p>{restaurant.food_type}</p>
                             </div>
