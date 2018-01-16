@@ -12,6 +12,7 @@ import {
   postCustomerData,
         } from './signUpActions';
 import NavBarContainer from '../NavBarContainer';
+import {loggedInUser} from '../NavbarContainer/navbarActions';
 var signUpPageBoolean = false;
 var nextPageLink = "/";
 
@@ -27,6 +28,7 @@ class SignUpContainer extends React.Component {
     this.handleInputPhoneNumber = this.handleInputPhoneNumber.bind(this);
     this.handleChangeFalse = this.handleChangeFalse.bind(this);
     this.handleChangeTrue = this.handleChangeTrue.bind(this);
+    this.handleNavbar =this.handleNavbar.bind(this);
 
   }
   handleInputFirstName(e){
@@ -102,9 +104,12 @@ class SignUpContainer extends React.Component {
     
     dispatch(updateSignUpLinkToOwner(nextPageLink));
   };
-
-
-
+ 
+  handleNavbar() {
+    const { dispatch } = this.props;
+    const ownerPage = 3;
+    dispatch(loggedInUser(ownerPage))
+  }
 
 
   render() {
@@ -130,7 +135,7 @@ class SignUpContainer extends React.Component {
               <input type="radio" name="switch"  onClick={this.handleChangeTrue} />
               <label>Yes</label>
             </div>
-            <Link to={signUpLink}><button type="submit" className="signUpBtn">SIGN UP</button></Link>
+            <Link to={signUpLink}><button type="submit" className="signUpBtn" onClick={this.handleNavbar}>SIGN UP</button></Link>
           </form>
         </div>
 
