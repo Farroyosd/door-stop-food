@@ -12,11 +12,6 @@ function mapStoreToProps(store) {
     picture : store.restaurantOwnerData.picture,
     foodType : store.restaurantOwnerData.foodType,
     waitTimes: store.restaurantOwnerData.waitTimes,
-    menuItemName: store.restaurantOwnerData.menuItemName,
-    menuItemPrice: store.restaurantOwnerData.menuItemPrice,
-    menuItemDescription: store.restaurantOwnerData.menuItemDescription,
-    menuItemCategory: store.restaurantOwnerData.menuItemCategory,
-    menuArray: store.restaurantOwnerData.menuArray,
     restaurantObj: store.restaurantOwnerData.restaurantObj,
     userObj: store.signInData.userObj,
   };

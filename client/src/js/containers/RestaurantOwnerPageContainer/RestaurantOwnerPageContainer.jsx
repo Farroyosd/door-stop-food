@@ -9,11 +9,6 @@ import {
     updateSignUpInputRestaurantPicture,
     updateSignUpInputRestaurantFoodType,
     updateSignUpInputRestaurantWaitTimes,
-    updateSignUpInputMenuItemName,
-    updateSignUpInputMenuItemPrice,
-    updateSignUpInputMenuItemDescription,
-    updateSignUpInputMenuItemCategory,
-    addToMenuArray,
     postRestaurantData,
 } from './restaurantOwnerPageActions';
 import NavBarContainer from '../NavBarContainer';
@@ -29,12 +24,7 @@ class RestaurantOwnerPageContainer extends React.Component {
         this.handleInputRestaurantPicture = this.handleInputRestaurantPicture.bind(this);
         this.handleInputRestaurantFoodType = this.handleInputRestaurantFoodType.bind(this);
         this.handleInputRestaurantWaitTimes = this.handleInputRestaurantWaitTimes.bind(this);
-        this.handleInputMenuItemName = this.handleInputMenuItemName.bind(this);
-        this.handleInputMenuItemPrice = this.handleInputMenuItemPrice.bind(this);
-        this.handleInputMenuItemDescription = this.handleInputMenuItemDescription.bind(this);
-        this.handleInputMenuItemCategory = this.handleInputMenuItemCategory.bind(this);
         this.handlePostRestaurant = this.handlePostRestaurant.bind(this);
-        this.handlePostMenuItem = this.handlePostMenuItem.bind(this);
     }
     handleInputRestaurantName(e) {
         e.preventDefault();
@@ -84,55 +74,10 @@ class RestaurantOwnerPageContainer extends React.Component {
         const { value } = e.target;
         dispatch(updateSignUpInputRestaurantWaitTimes(value));
     };
-    handleInputMenuItemName(e) {
-        e.preventDefault();
-        const { dispatch } = this.props;
-        const { value } = e.target;
-        dispatch(updateSignUpInputMenuItemName(value));
-    };
-    handleInputMenuItemPrice(e) {
-        e.preventDefault();
-        const { dispatch } = this.props;
-        const { value } = e.target;
-        dispatch(updateSignUpInputMenuItemPrice(value));
-    };
-    handleInputMenuItemDescription(e) {
-        e.preventDefault();
-        const { dispatch } = this.props;
-        const { value } = e.target;
-        dispatch(updateSignUpInputMenuItemDescription(value));
-    };
-    handleInputMenuItemCategory(e) {
-        e.preventDefault();
-        const { dispatch } = this.props;
-        const { value } = e.target;
-        dispatch(updateSignUpInputMenuItemCategory(value));
-    };
-
-    handlePostMenuItem(e) {
-        e.preventDefault();
-        const { dispatch, menuItemName, menuItemPrice, menuItemDescription, menuItemCategory } = this.props;
-        var menuItemObj = {
-            "item_name": menuItemName,
-            "price": menuItemPrice,
-            "description": menuItemDescription,
-            "category": menuItemCategory,
-        }
-
-        dispatch(addToMenuArray(menuItemObj));
-        this.refs.form.reset();
-        dispatch(updateSignUpInputMenuItemCategory("Breakfast"));
-
-    };
-
-
-
-    handlePostRestaurant(e) {
-        e.preventDefault();
-        const { dispatch, restaurantName, menuArray, address, description, phone, foodType, waitTimes, hours, picture } = this.props;
+    handlePostRestaurant() {
+        const { dispatch, restaurantName, address, description, phone, foodType, waitTimes, hours, picture } = this.props;
         var signUpOwnerObj = {
             "restaurant_name": restaurantName,
-            "menu": menuArray,
             "address": address,
             "description": description,
             "phone_number": phone,
@@ -160,15 +105,12 @@ class RestaurantOwnerPageContainer extends React.Component {
         const { restaurantName,
             address, hours, phone,
             description, foodType,
-            waitTimes, menuItemName,
-            menuItemPrice, menuItemDescription,
-            menuItemCategory, menuArray, restaurantObj,
+            waitTimes, restaurantObj,
             userObj, picture } = this.props;
         return (
             <div className="signUpRestaurantBG">
                 <NavBarContainer />
                 <div className='signUpRestaurant'>
-                    <div>
                         <input className="signUpRestaurantInput" type='text' placeholder='Restaurant Name*' value={restaurantName} onChange={this.handleInputRestaurantName} />
                         <input className="signUpRestaurantInput" type='text' placeholder='Address*' value={address} onChange={this.handleInputRestaurantAddress} />
                         <input className="signUpRestaurantInput" type='text' placeholder='Hour of Operation*' value={hours} onChange={this.handleInputRestaurantHours} />
@@ -177,50 +119,7 @@ class RestaurantOwnerPageContainer extends React.Component {
                         <input className="signUpRestaurantInput" type='text' placeholder='Add a Restaurant Cover Photo' value={picture} onChange={this.handleInputRestaurantPicture} />
                         <input className="signUpRestaurantInput" type='text' placeholder='Food Type*' value={foodType} onChange={this.handleInputRestaurantFoodType} />
                         <input className="signUpRestaurantInput" type='text' placeholder='Average Wait Times*' value={waitTimes} onChange={this.handleInputRestaurantWaitTimes} />
-                        <div className="addMenuItemDiv">
-                            <label>Add Menu Item</label>
-                            <form ref="form">
-                                <input className="signUpRestaurantInput" type='text' placeholder='Name*'  onChange={this.handleInputMenuItemName} />
-                                <input className="signUpRestaurantInput" type='number' placeholder='Price*'  onChange={this.handleInputMenuItemPrice} />
-                                <input className="signUpRestaurantInput" type='text' placeholder='Description*' onChange={this.handleInputMenuItemDescription} />
-                                <select className="signUpRestaurantInput"  onChange={this.handleInputMenuItemCategory}>
-                                    <option value="Breakfast">Breakfast</option>
-                                    <option value="Appetizer">Appetizer</option>
-                                    <option value="Entree">Entree</option>
-                                    <option value="Drink">Drink</option>
-                                </select>
-                            </form>
-                                <button onClick={this.handlePostMenuItem} className="addMenuBtn">ADD</button>
-                        </div>
-                        <label className="menuLabel" >Menu Items</label>
-                        <div className="menuList">
-                            <table >
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Price</th>
-                                        <th>Description</th>
-                                        <th>Category</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                {
-                                    menuArray.map(menuItem => {
-                                        return(
-                                        <tr>
-                                            <td>{menuItem.item_name}</td>
-                                            <td>{menuItem.price}</td>
-                                            <td>{menuItem.description}</td>
-                                            <td>{menuItem.category}</td>
-                                        </tr>
-                                    )
-                                    })
-                                }
-                                </tbody>
-                            </table>
-                        </div>
-                        <button className="signUpSaveBtn" onClick={this.handlePostRestaurant}>SAVE</button>
-                    </div>
+                        <Link to="/addmenuitems" ><button className="signUpSaveBtn" onClick={this.handlePostRestaurant}>Proceed to add menu items</button></Link>
                 </div>
 
             </div>
