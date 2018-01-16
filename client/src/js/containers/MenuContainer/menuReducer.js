@@ -1,9 +1,6 @@
 const defaultState = {
-    shoppingCart: {
-        quantity: 0,
-        itemName: '',
-        itemPrice: ''
-    }
+    shoppingCart: [],
+    quantity: 0
 }
 
 export default function menuReducer(state = defaultState, action) {
@@ -11,11 +8,29 @@ export default function menuReducer(state = defaultState, action) {
 
     switch (type) {
         case 'ADD_TO_CART': {
+
+            var foodItems = [...state.shoppingCart, payload];
+            // foodItems.push(payload);
+
             return {
                 ...state,
-                shoppingCart: payload 
+                shoppingCart: foodItems 
             }
         }
+        case 'ITEM_INCREMENTER': {
+            return {
+                ...state.shoppingCart,
+                quantity: state.quantity + 1
+            }
+        }
+        case 'DELETE_ITEM': {
+            return {
+                ...state,
+                shoppingCart: payload
+
+            }
+        }
+
         default: {
             return state;
           }
