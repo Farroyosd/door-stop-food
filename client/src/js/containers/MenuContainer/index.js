@@ -5,7 +5,8 @@ function mapStoreToProps(store) {
   return {
     searchData: store.searchData.address,
     shoppingCart: store.itemData.shoppingCart,
-    incrementer: store.itemData.quantity
+    incrementer: store.itemData.quantity,
+    userLogin: store.userInfo.userLogin
   };
 }
 

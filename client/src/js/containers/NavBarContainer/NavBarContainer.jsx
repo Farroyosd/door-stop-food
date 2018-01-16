@@ -10,11 +10,15 @@ import {
 class NavBarContainer extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      isOpen: false
+  };
 this.handleUserNameInput = this.handleUserNameInput.bind(this)
 this.handlePasswordInput = this.handlePasswordInput.bind(this)
 this.handleLoggedInUser = this.handleLoggedInUser.bind(this)
 this.handleLogoutUser = this.handleLogoutUser.bind(this)
 this.handleSignUpUser = this.handleSignUpUser.bind(this)
+this.toggleMenu = this.toggleMenu.bind(this);
   }
 
 handleUserNameInput(e) {
@@ -52,20 +56,31 @@ handleSignUpUser(e) {
   dispatch(loggedInUser(signUp))
 }
 
-
+toggleMenu() {
+  this.setState({ isOpen: !this.state.isOpen });
+}
 
 
 renderNavBarLogin() {
   const { userLogin, username, password } = this.props
+  const cartClass = this.state.isOpen ? 'open' : 'close';
 
+  console.log("userlogin", userLogin);
   if (userLogin === 1) {
     return (<div className="navBar">
     <ul>
-      <li ><a className="navLogo" href="/">Door Stop Food</a></li>
-      <li ><a className="navLogIn" 
+      <li>
+        <a className="navLogo" href="/">
+            Door Stop Food
+        </a>
+      </li>
+      <li
+        className="pr-4 text-white"
+        ><a className="navLogIn" 
               data-toggle="modal" 
               data-target="#exampleModalCenter">
-        Login</a>
+              Login
+          </a>
       </li>
     </ul>
   </div>)
@@ -75,9 +90,10 @@ renderNavBarLogin() {
     <div className="dropdown">
     <ul>
       <li ><a className="navLogo" href="/">Door Stop Food</a></li>
-      <li><button className="navLogInC">Order        <i className="fa fa-shopping-cart" aria-hidden="true"></i></button></li>
-      <li >
-      <button className="navLogInC" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <li className="pr-4"
+          >
+        <button>Cart</button>
+      <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
      {username}
       </button>
       <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -111,7 +127,7 @@ renderNavBarLogin() {
   render() {
     const { userLogin, username, password } = this.props
     return (
-      <div className="container-fluid">
+      <div>
       <div>
         {this.renderNavBarLogin()}
         </div>
