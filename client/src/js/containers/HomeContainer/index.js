@@ -3,9 +3,9 @@ import HomeContainer from './HomeContainer';
 
 
 function mapStoreToProps(store) {
-  return {
-    searchData: store.searchData.address
-  };
+ return {
+   searchData: store.searchData.address
+ };
 }
 
 

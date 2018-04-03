@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
-import { 
-  HashRouter as Router, 
-  Route 
+import {
+  Switch, HashRouter as Router,
+  Route
 } from 'react-router-dom';
 import HomeContainer from './containers/HomeContainer';
 import SearchResultsContainer from './containers/SearchResultsContainer';
 import MenuContainer from './containers/MenuContainer';
-import CheckoutContainer from './containers/CheckoutContainer'
+import CheckoutContainer from './containers/CheckoutContainer';
+import SignUpContainer from './containers/SignUpContainer';
+import RestaurantOwnerPageContainer from './containers/RestaurantOwnerPageContainer';
+import AddMenuItemsContainer from './containers/AddMenuItemsContainer';
 import '../css/style.less';
 import FooterContainer from './containers/FooterContainer';
 
@@ -16,14 +19,19 @@ export default class App extends Component {
   render() {
     return (
       <Router>
-      <div className=''> 
-        <Route exact path='/' component={ HomeContainer } />
-        <Route exact path='/searchresults' component={ SearchResultsContainer } />
-        <Route exact path='/menu' component={ MenuContainer } />
-        <Route exact path='/checkout' component={ CheckoutContainer } />
-      <FooterContainer/>
-      </div>
-    </Router>
+        <div className=''>
+          <Switch>
+            <Route exact path='/' component={HomeContainer} />
+            <Route path='/searchresults' component={SearchResultsContainer} />
+            <Route path='/checkout' component={CheckoutContainer} />
+            <Route path='/signup' component={SignUpContainer} />
+            <Route path='/restaurantownerpage' component={RestaurantOwnerPageContainer} />
+            <Route path='/addmenuitems' component={AddMenuItemsContainer}/>
+            <Route path='/:id' component={MenuContainer} />
+          </Switch>
+          <FooterContainer />
+        </div>
+      </Router>
     );
   }
 }

@@ -13,6 +13,9 @@ class CheckoutContainer extends React.Component {
                     <i className="fa fa-arrow-left fa-2x" aria-hidden="true"></i><p>Back to La Taquero</p>
                 </div>
                 <h1>Checkout</h1>
+                    <button type="button" className="btn btn-primary pr-pl-25" data-toggle="modal" data-target="#exampleModalLong">
+                            Review Order
+                    </button>
             </div>
         )
     }

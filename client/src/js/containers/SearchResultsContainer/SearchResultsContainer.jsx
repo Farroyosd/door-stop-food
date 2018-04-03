@@ -1,37 +1,39 @@
 import React from 'react';
+import NavBarContainer from '../NavBarContainer';
 import { Link } from 'react-router-dom';
 
 class SearchResultsContainer extends React.Component {
     constructor(props) {
         super(props);
+
+    }
+
+    handleMenu(event) {
+        const { dispatch } = this.props;
+        const id = event.target.id;
     }
 
     render() {
+
+        const { searchData } = this.props;
+
         return (
             <div className="searchResultsContainer">
                 <div className="searchResultsHeader">
+                    <NavBarContainer />
                 </div>
                 <div className="resultListings">
-                    <div className="result">
-                    <img src="/images/sushi.jpg" />
-                     <h3>Sushi Deli</h3>
-                    </div>
-                    <div className="result">
-                    <img src="/images/taco.jpg" />
-                    <h3>La Taquero</h3>
-                    </div>
-                    <div className="result">
-                    <h3>Grab n' Go</h3>
-                    </div>
-                    <div className="result">
-                    <h3>Chin's Sketchwan</h3>
-                    </div>
-                    <div className="result">
-                    <h3>Poke Bowl</h3>
-                    </div>
-                    <div className="result">
-                    <h3>Great Wall</h3>
-                    </div>
+                    {!!searchData && searchData.map(restaurant => {
+                        return <Link to={`${restaurant.id}`} onClick={this.runStuff}>
+                            <div className="result">
+                            {/* {console.log("shiza",restaurant.restaurant)} */}
+                                <img src={restaurant.restaurant} />
+                                <h3>{restaurant.restaurant_name}</h3>
+                                <p>{restaurant.food_type}</p>
+                            </div>
+                        </Link>
+                    })
+                    }
                 </div>
             </div>
         )

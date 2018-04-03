@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
-import SearchResultsContainer from './SearchResultsContainer';
-
+import ShoppingCartContainer from './ShoppingCartContainer';
 
 function mapStoreToProps(store) {
   return {
@@ -9,4 +8,4 @@ function mapStoreToProps(store) {
 }
 
 
-export default connect(mapStoreToProps)(SearchResultsContainer);
+export default connect(mapStoreToProps)(ShoppingCartContainer);

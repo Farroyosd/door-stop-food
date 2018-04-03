@@ -4,6 +4,12 @@ body {
   font-family: sans-serif;
   
 }
+
+h1 {
+  font-family: 'Encode Sans Semi Expanded', sans-serif;
+  font-size: 3vw;
+  // background-color:rgba(0, 0, 0,.5);
+}
 //Nav bar
 
 .navLogo{
@@ -16,7 +22,8 @@ body {
   border-radius: 10px;
 }
 
-ul {
+
+.navBar ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -24,19 +31,44 @@ ul {
   background: rgba(0,0,0,0.5);
 }
 
-li a {
+.dropdown-menu {
+  color: white;
+  text-decoration: none;
+  padding: 0;
+  background: rgba(0,0,0,0.5);
+}
+
+.navBar li a {
   display: block;
   color: white;
   text-decoration: none;
   text-align: center;
   padding: 14px 16px;
   text-shadow: 2px 2px 2px black;
-  
 }
-li a:hover{
+
+.navBar li button {
+  float:right;
+  border: 1px solid lightskyblue;
+  border-radius: 10px;
+  background-color: grey;
+  margin-top: 3px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 10px;
+}
+
+.navBar ul li a:hover{
   color:white;
   text-decoration: none;
 }
+
+.modal-backdrop {
+  display: none;
+}
+
+
+
 
 //Home Page
 .homeDiv{
@@ -92,9 +124,17 @@ li a:hover{
   height: 250px;
   width: 400px;
   margin-top: 30px;
-  justify-items:stretch
-}
+  justify-items:stretch;
+  }
 
+  .resultListings a, a:visited, a:hover, a:active {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  .resultListings a:visited{
+    color: green;
+  }
 .result img {
   max-width: 100%;
   max-height: 100%;
@@ -130,6 +170,20 @@ li a:hover{
   padding-left: 30px;
 }
 
+.cartBtn{
+  float:left;
+  border: 1px solid lightskyblue;
+  border-radius: 10px;
+  margin-right: 5px;
+  display: block;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  padding: 14px 16px;
+  text-shadow: 2px 2px 2px black;
+  background: rgba(0,0,0,0.5);
+}
+
 .categoryHeader {
   display:grid;
   grid-template-columns: 1fr;
@@ -145,6 +199,13 @@ li a:hover{
 .item {
   border: 1px solid;
   padding: 5px;
+  text-align: center;
+  min-width: 479px;
+  cursor: pointer;
+
+  & * {
+    pointer-events: none;
+  }
 }
 
 .foodDescription {
@@ -160,21 +221,33 @@ li a:hover{
 }
 
 .item:hover .foodName,.item:hover .foodPrice, .item:hover .foodDescription {
-  opacity: .3
+  opacity: .2
 }
 
 .middle {
   transition: .5s ease;
   opacity: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%)
+  width: 40%;
+  margin: 0 auto;
+  padding: 10px 0 5px 0;
+  bottom: 70px;
+  position:relative;
+  // position: absolute;
+  // top: 50%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
+  // -ms-transform: translate(-50%, -50%)
 }
+
+// .orderText {
+//   display:flex;
+//   justify-content: center;
+// }
 
 .item:hover .middle {
   opacity: 1;
+  background: darkgray;
+  color:white;
 }
 
 .backButtonContainer {
@@ -186,16 +259,234 @@ li a:hover{
 .backButtonContainer p {
   margin: 0;
 }
+//Sign Up Page
+
+.signUpBG{
+  height: 100vh;
+  width:100vw;
+  background-image: url("https://files.slack.com/files-tmb/T0535UKR3-F8SCTK929-81f2db314b/abovetable_720.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.signup {
+  width: 500px;
+  padding: 30px 20px;
+  background-color: white;
+  border-radius: 5px;
+  font: 1em Helvetica;
+  color: rgba(0,0,0,.5);
+  margin: 0 auto;
+  margin-top: 10vh;
+}
+
+.signUpInput, .signUpRadioDiv {
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+  border: 0;
+  border-bottom: 1px solid rgba(0,0,0,.2);
+  height: 45px;
+  line-height: 45px;  
+  margin-bottom: 10px;
+  font-size: 1em;
+  color: rgba(0,0,0,.4);
+}
+.signUpRadioDiv{
+  color: rgba(0,0,0,.55)
+}
+.signUpRadioDiv input{
+  margin-left:10px;
+}
+.signUpRadioDiv label{
+  margin-left:10px;
+}
+
+.signUpBtn {
+  display: block;
+  margin-top: 25px;
+  width: 80%;
+  border: 0;
+  background-color: #53CACE;
+  border-radius: 5px;
+  height: 50px;
+  color: white;
+  font-weight: 400;
+  font-size: 1em;
+  margin: 0 auto;
+}
+
+[type='text']:focus {
+  outline: none;
+  border-color: #53CACE;
+}
+
+[type='password']:focus {
+  outline: none;
+  border-color: #53CACE;
+}
+//sign up restaurant page
+
+
+.signUpRestaurantBG{
+  min-height: 100vh;
+  width:100vw;
+  background-image: url("https://files.slack.com/files-tmb/T0535UKR3-F8SCTK929-81f2db314b/abovetable_720.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.signUpRestaurant {
+  width: 800px;
+  padding: 30px 20px;
+  background-color: white;
+  border-radius: 5px;
+  font: 1em Helvetica;
+  color: rgba(0,0,0,.5);
+  margin: 0 auto;
+}
+
+.signUpRestaurantBG{
+  min-height: 100vh;
+  width:100vw;
+  background-image: url("https://files.slack.com/files-tmb/T0535UKR3-F8SCTK929-81f2db314b/abovetable_720.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.signUpRestaurant {
+  width: 800px;
+  padding: 30px 20px;
+  background-color: white;
+  border-radius: 5px;
+  font: 1em Helvetica;
+  color: rgba(0,0,0,.5);
+  margin: 0 auto;
+}
+
+.signUpRestaurantInput {
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+  border: 0;
+  border-bottom: 1px solid rgba(0,0,0,.2);
+  height: 45px;
+  line-height: 45px;  
+  margin-bottom: 10px;
+  font-size: 1em;
+  color: rgba(0,0,0,.4);
+  background-color: white;
+}
+.addMenuItemDiv {
+  display: block;
+  margin: 0 auto;
+  margin-top:25px;
+  width: 80%;
+  border: 0;
+  margin-bottom: 10px;
+  font-size: 1em;
+  color: rgba(0,0,0,.4);
+}
+.addMenuItemDiv Label {
+  color: rgba(0,0,0,.7);
+}
+.addMenuBtn{
+  display: block;
+  margin-top: 25px;
+  width: 62.5%;
+  border: 0;
+  background-color: #53CACE;
+  border-radius: 5px;
+  height: 50px;
+  color: white;
+  font-weight: 400;
+  font-size: 1em;
+  margin: 0 auto;
+  
+}
+.menuLabel{
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+  border: 0;
+  height: 45px;
+  line-height: 45px;  
+  margin-bottom: 10px;
+  font-size: 1em;
+  color: rgba(0,0,0,.7);
+}
+.menuList{
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+  margin-bottom: 20px;
+  font-size: 1em;
+  color: rgba(0,0,0,.4);
+}
+.menuList table {
+    width: 100%;
+}
+.menuList td, th {
+    text-align: left;
+    padding: 8px;
+}
+.signUpSaveBtn {
+  display: block;
+  margin-top: 25px;
+  width: 50%;
+  border: 0;
+  background-color: #53CACE;
+  border-radius: 5px;
+  height: 50px;
+  color: white;
+  font-weight: 400;
+  font-size: 1em;
+  margin: 0 auto;
+}
+//Footer
 
 footer{
   background-color: black;
   text-align: center;
   color:white;
-  margin: 0;
+  margin: 30px 0 0 0 ;
   height: 30px;
   vertical-align: middle;
+  position: relative;
+  bottom: 0;
+  width: 100%
 }
 
 footer p{
   margin:0;
+}
+
+// ShoppingCart
+
+.cart {
+  background-color: lightgray;
+  position: fixed;
+  right: 0;
+  width: 400px;
+  right: -400px;
+  padding: 15px;
+  transition: right 1s ease;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+
+  &.open {
+    right: 0px;
+  }
+}
+
+.cartItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.cartLine {
+  background-color: darkgray;
 }

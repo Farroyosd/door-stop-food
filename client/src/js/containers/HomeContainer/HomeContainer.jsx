@@ -19,17 +19,13 @@ class HomeContainer extends React.Component {
     new google.maps.places.Autocomplete(input, options);
   }
 
-  handleHomeSearch(){
+  handleHomeSearch() {
     const { dispatch } = this.props;
     var search = document.getElementById('homeSearchBar');
 
     dispatch(getSearchData(search));
-    
+
   }
-
-
-
-
 
   render() {
     return (
@@ -45,14 +41,14 @@ class HomeContainer extends React.Component {
                   <div className="input-group">
                     <input type="text" id="homeSearchBar" className="form-control" placeholder="Let's find you something to eat" aria-label="Search for..." />
                     <span className="input-group-btn">
-                      <Link to="/"><button className="btn btn-success" type="button" onClick={this.handleHomeSearch} >></button></Link>
+                      <Link to="/searchresults"><button className="btn btn-success" type="button" onClick={this.handleHomeSearch} >></button></Link>
                     </span>
                   </div>
                 </div>
               </div>
-            </form>
-          </div>
+          </form>
         </div>
+      </div>
     );
   }
 }

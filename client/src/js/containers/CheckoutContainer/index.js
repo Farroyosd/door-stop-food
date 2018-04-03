@@ -4,7 +4,7 @@ import CheckoutContainer from './CheckoutContainer';
 
 function mapStoreToProps(store) {
   return {
-    movieData: store.movieSearch.movieData
+    searchData: store.searchData.address
   };
 }
 
